@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>LESTER TV | Cyber Gaming Portal</title>
+    <meta name="description" content="Lester TV - official fan website, gaming content, Car Parking Multiplayer, and BMW M4 F82.">
+    <meta name="keywords" content="Lester TV, Car Parking Multiplayer, BMW M4, gaming, YouTube">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #05070a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Page Transitions */
+        .page-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px) scale(0.99);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .page-content.active-page {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: cyberFadeIn 0.5s ease forwards;
+        }
+
+        @keyframes cyberFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modern Glass Header */
+        .header {
+            height: 90px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 15, 26, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #fff;
+            background: linear-gradient(135deg, #fff 30%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Action Buttons */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 580px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+        }
+
+        .hero-text {
+            flex: 1.1;
+            max-width: 650px;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(46px, 7vw, 80px);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 35px;
+        }
+
+        .hero-action {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 480px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.15);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #38bdf8;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Stats Counter Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px 5%;
+            margin: 0 8% 60px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            font-weight: 900;
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.4);
+            color: #fff;
+        }
+
+        /* Reviews Grid */
+        .reviews {
+            padding: 90px 8%;
+            background: rgba(10, 15, 26, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .reviews h2 {
+            font-size: clamp(32px, 5vw, 44px);
+            margin-bottom: 45px;
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        .review-item {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .review-item:hover {
+            transform: translateY(-8px);
+            background: rgba(15, 23, 42, 0.85);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .review-item h4 {
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .review-item p {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .author {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .btn-buy {
+            display: block;
+            text-align: center;
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-buy:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* YouTube Videos Section */
+        .video-section {
+            padding: 90px 8%;
+            background: rgba(5, 7, 10, 0.6);
+        }
+
+        .video-section h2 {
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 45px;
+            letter-spacing: -1px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .video-thumb {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover .video-thumb img {
+            transform: scale(1.05);
+        }
+
+        .play-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(56, 189, 248, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .play-badge {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .video-content h3 {
+            font-size: 16px;
+            color: #fff;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        /* Features */
+        .feature-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 100px 8%;
+        }
+
+        .feature-info { flex: 1; }
+
+        .feature-info h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .feature-info p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 35px;
+        }
+
+        /* Єдина картинка street.jpg у блоці THE BMW */
+        .single-feature-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .single-feature-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .single-feature-image img:hover {
+            transform: scale(1.03);
+            border-color: #38bdf8;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 8%;
+            background: rgba(10, 15, 26, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: #38bdf8;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 24px;
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-item.open {
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 7, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 32px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #38bdf8;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            text-align: center;
+            padding: 80px 40px;
+            border-radius: 24px;
+            max-width: 1100px;
+            margin: 60px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .banner h2 {
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .banner p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .banner .btn-white {
+            background: #fff;
+            color: #0f172a;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .banner .btn-white:hover {
+            background: #38bdf8;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Solution */
+        .solution-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 70px 8%;
+            border-radius: 24px;
+            margin: 70px 8%;
+            backdrop-filter: blur(12px);
+        }
+
+        .solution-text { flex: 1; }
+
+        .solution-text h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .solution-text .line {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            width: 120px;
+            margin-bottom: 24px;
+        }
+
+        .solution-text p {
+            font-size: 15px;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .solution-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .solution-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        .sponsor-footer {
+            text-align: center;
+            padding: 35px 0;
+            background: rgba(5, 7, 10, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        .sponsor-name {
+            color: #38bdf8;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero, .feature-block, .solution-block {
+                flex-direction: column;
+                padding: 60px 6%;
+            }
+            .header {
+                padding: 20px 6%;
+                height: auto;
+                flex-direction: column;
+                gap: 18px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .solution-image, .single-feature-image {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo" onclick="switchPage(event, 'home')">LESTERTV</div>
+        <div class="nav-container">
+            <nav class="nav">
+                <a href="#" class="nav-link active" id="nav-home" onclick="switchPage(event, 'home')">Home</a>
+                <a href="#" class="nav-link" id="nav-pricing" onclick="switchPage(event, 'pricing')">About</a>
+                <a href="#" class="nav-link" id="nav-contact" onclick="switchPage(event, 'contact')">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">🌐 RU</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ГОЛОВНА СТОРІНКА (HOME) -->
+    <div id="home-page" class="page-content active-page">
+        <section class="hero">
+            <div class="hero-text">
+                <h1 id="hero-title">The Fastest</h1>
+                <p id="hero-desc">Lester TV is a popular gaming blogger who became famous thanks to Car Parking Multiplayer. He is associated with his legendary grey BMW M4 F82 Stage 2+, a powerful and stylish car that became recognizable among his fans. His BMW M4 is also associated with a 1,000-horsepower build, although the exact specifications have not been independently confirmed.</p>
+                <div class="hero-action">
+                    <a href="https://www.youtube.com/@LesterTV_077" target="_blank" rel="noopener noreferrer" class="btn-primary" id="hero-btn">Watch on YouTube ↗</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="FirstLester.jpg" alt="Lester TV" onclick="openLightbox(this.src)">
+            </div>
+        </section>
+
+        <!-- БАР ЖИВОЇ СТАТИСТИКИ -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>800K+</h3>
+                <p id="stat-subscribers">Subscribers</p>
+            </div>
+            <div class="stat-item">
+                <h3>1,000 HP</h3>
+                <p id="stat-power">BMW M4 Power</p>
+            </div>
+            <div class="stat-item">
+                <h3>100M+</h3>
+                <p id="stat-views">Total Views</p>
+            </div>
+            <div class="stat-item">
+                <h3>CPM</h3>
+                <p id="stat-game">Main Game</p>
+            </div>
+        </div>
+
+        <section class="reviews">
+            <h2 id="creators-title">Content Creators</h2>
+            <div class="reviews-grid">
+                <!-- Картка 1 -->
+                <div class="review-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h4>MAKSYM12</h4>
+                        <p><span class="label-username">Username:</span> @_maksym12_wb_</p>
+                        <p><span class="label-role">Role:</span> <span class="role-editor">Editor</span></p>
+                        <span class="author" style="display: block; margin-bottom: 15px;"><span class="label-stats">Stats:</span> 57 Following, 5,046 Followers, 162.1K Likes</span>
+                    </div>
+                    <a href="https://www.tiktok.com/@_maksym12_wb_" target="_blank" rel="noopener noreferrer" class="btn-buy label-checkout" style="margin-top: 10px;">Check out</a>
+                </div>
+
+                <!-- Картка 2 -->
+                <div class="review-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h4>Lester_fan</h4>
+                        <p><span class="label-username">Username:</span> @withsenior_2</p>
+                        <p><span class="label-role">Role:</span> <span class="role-clipper">Clipper</span></p>
+                        <span class="author" style="display: block; margin-bottom: 15px;"><span class="label-stats">Stats:</span> 57 Following, 347 Followers, 7,143 Likes</span>
+                    </div>
+                    <a href="https://www.tiktok.com/@withsenior_2" target="_blank" rel="noopener noreferrer" class="btn-buy label-checkout" style="margin-top: 10px;">Check out</a>
+                </div>
+
+                <!-- Картка 3 -->
+                <div class="review-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h4>LesTeR-Rofls</h4>
+                        <p><span class="label-username">Username:</span> @lesterrrofls</p>
+                        <p><span class="label-role">Role:</span> <span class="role-clipper">Clipper</span></p>
+                        <span class="author" style="display: block; margin-bottom: 15px;"><span class="label-stats">Stats:</span> 21 Following, 1,632 Followers, 29.1K Likes</span>
+                    </div>
+                    <a href="https://www.tiktok.com/@lesterrrofls" target="_blank" rel="noopener noreferrer" class="btn-buy label-checkout" style="margin-top: 10px;">Check out</a>
+                </div>
+
+                <!-- Картка 4 -->
+                <div class="review-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h4>ZXhunch</h4>
+                        <p><span class="label-username">Username:</span> @luwmill</p>
+                        <p><span class="label-role">Role:</span> <span class="role-clipper">Clipper</span></p>
+                        <span class="author" style="display: block; margin-bottom: 15px;"><span class="label-stats">Stats:</span> 95 Following, 357 Followers, 4,611 Likes</span>
+                    </div>
+                    <a href="https://www.tiktok.com/@luwmill" target="_blank" rel="noopener noreferrer" class="btn-buy label-checkout" style="margin-top: 10px;">Check out</a>
+                </div>
+
+                <!-- Картка 5 -->
+                <div class="review-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h4>MariGE</h4>
+                        <p><span class="label-username">Username:</span> @wengally</p>
+                        <p><span class="label-role">Role:</span> <span class="role-clipper">Clipper</span></p>
+                        <span class="author" style="display: block; margin-bottom: 15px;"><span class="label-stats">Stats:</span> 84 Following, 5,000 Followers, 275.2K Likes</span>
+                    </div>
+                    <a href="https://www.tiktok.com/@wengally" target="_blank" rel="noopener noreferrer" class="btn-buy label-checkout" style="margin-top: 10px;">Check out</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ТОП ВІДЕО З ПРЕВ'Ю (YOUTUBE VIDEOS) -->
+        <section class="video-section">
+            <h2 id="video-title">Featured YouTube Videos</h2>
+            <div class="video-grid">
+                <!-- Відео 1 -->
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/12eegy2uQnY/hqdefault.jpg" alt="Video 1 preview">
+                        <div class="play-badge">▶</div>
+                    </div>
+                    <div class="video-content">
+                        <h3>Car parking multiplayer реальная жизнь: ПОГОНЯ ОТ ПОЛИЦЕЙСКИХ</h3>
+                        <a href="https://www.youtube.com/watch?v=12eegy2uQnY" target="_blank" rel="noopener noreferrer" class="btn-buy label-watch">Watch Video ↗</a>
+                    </div>
+                </div>
+
+                <!-- Відео 2 -->
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/-vv29vkZDmo/hqdefault.jpg" alt="Video 2 preview">
+                        <div class="play-badge">▶</div>
+                    </div>
+                    <div class="video-content">
+                        <h3>МОЙ БРАТ против МАРЬЯНЫ СДАЮТ НА ПРАВА НА РУЛЕ в Car parking multiplayer 2.0</h3>
+                        <a href="https://www.youtube.com/watch?v=-vv29vkZDmo" target="_blank" rel="noopener noreferrer" class="btn-buy label-watch">Watch Video ↗</a>
+                    </div>
+                </div>
+
+                <!-- Відео 3 -->
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/99e_xA20qgs/hqdefault.jpg" alt="Video 3 preview">
+                        <div class="play-badge">▶</div>
+                    </div>
+                    <div class="video-content">
+                        <h3>МОЙ БРАТ ШКОЛЬНИК УГНАЛ У МЕНЯ BMW M6 и ПОЕХАЛ К...</h3>
+                        <a href="https://www.youtube.com/watch?v=99e_xA20qgs" target="_blank" rel="noopener noreferrer" class="btn-buy label-watch">Watch Video ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-block">
+            <div class="feature-info">
+                <h2>THE BMW</h2>
+                <p id="bmw-desc">Главное, с чем ассоциируется Lester TV — это его серая BMW M4 F82. Эта машина запомнилась зрителям и стала важной частью образа блогера.</p>
+                <a href="#" class="btn-primary" id="bmw-learn-more" onclick="switchPage(event, 'pricing')">Подробнее</a>
+            </div>
+            <div class="single-feature-image">
+                <img src="street3.jpg" alt="Street" onclick="openLightbox(this.src)">
+            </div>
+        </section>
+
+        <!-- СЕКЦІЯ ЧАСТИХ ЗАПИТАНЬ (FAQ) -->
+        <section class="faq-section">
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q1">What game does Lester TV play?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a1">
+                        Lester TV primarily focuses on Car Parking Multiplayer (CPM), creating tuning builds, drag races, and multiplayer adventures.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q2">Is the BMW M4 really 1,000 HP?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a2">
+                        The 1,000 HP power output is a legendary association among fans and in-game builds, though official real-world dyno sheets are unconfirmed.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span id="faq-q3">How can I join the community?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" id="faq-a3">
+                        You can follow official links to Lester's Telegram, TikTok, and Twitch in the Contact page!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner">
+            <h2 id="banner-title">BMW M4 F82 блогера мощностью 1000 л.с. имеет полностью подтвержденные характеристики.</h2>
+            <p id="banner-desc">Еще одна интересная тема — BMW M4 F82, которая выдает около 1000 сил и ассоциируется с блогером.</p>
+            <a href="https://www.youtube.com/watch?v=oqudROLiZzI&t=413s" target="_blank" rel="noopener noreferrer" class="btn-white" id="banner-btn">Видео на YouTube ↗</a>
+        </section>
+
+        <!-- Спонсор Bulldrop -->
+        <footer class="sponsor-footer">
+            <p><strong>He play on:</strong> <a href="https://bulldrop.mobi/ru?platform=cs2&promocode=%D0%A0%D0%A3%D0%A4%D0%90" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">Bulldrop</a></p>
+        </footer>
+    </div>
+
+    <!-- ДРУГА СТОРІНКА (ABOUT / PRICING) -->
+    <div id="pricing-page" class="page-content">
+        <section class="hero">
+            <div class="hero-image">
+                <img src="Ruffo.jpg" alt="Lester TV" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h1 id="bio-title-heading">Bio Lester</h1>
+                <h3 style="color: #38bdf8; margin-bottom: 15px; font-size: 20px;" id="bio-subtitle">Biography of Lester TV</h3>
+                <p style="margin-bottom: 12px;" id="bio-p1">Lester TV, also known as Lester (Rufo), is a Russian-speaking gaming blogger who gained popularity through his videos about Car Parking Multiplayer. He creates entertaining content focused on cars, tuning, racing, and various adventures in the virtual automotive world.</p>
+                <p style="margin-bottom: 12px;" id="bio-p2">Lester has attracted an audience of gaming enthusiasts and car lovers through his dynamic videos, creative challenges, and engaging automotive content. His channel features virtual car customizations, player interactions, and exciting situations within the game.</p>
+                <p style="margin-bottom: 12px;" id="bio-p3">In addition to YouTube, Lester connects with his audience through social media, sharing updates and content related to his gaming activities.</p>
+                <p style="margin-bottom: 12px;" id="bio-p4">Lester TV is a recognizable name in the Car Parking Multiplayer community, combining automotive culture with gaming entertainment and creative video production.</p>
+                <p id="bio-p5">Although he is known online as Lester (Rufo), his full real name and personal details have not been reliably confirmed.</p>
+            </div>
+        </section>
+
+        <!-- ЗАГОЛОВОК ІСТОРІЯ ЙОГО МАШИН -->
+        <div style="padding: 40px 8% 20px 8%; text-align: center;">
+            <h2 style="font-size: clamp(32px, 5vw, 44px); font-weight: 900; color: #fff; letter-spacing: -1px;" id="history-cars-title">История его машин</h2>
+        </div>
+
+        <!-- СПИСОК АВТОМОБІЛІВ ЛЕСТЕРА У ЗВОРОТНОМУ ПОРЯДКУ -->
+        <!-- 1. BMW M4 (Перша) -->
+        <section class="hero" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 40px;">
+            <div class="hero-image">
+                <img src="Vibe2.jpg" alt="BMW M4" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h2 id="car1-title">BMW M4 f82</h2>
+                <p id="car1-desc">The BMW M4 F82 owned by Lester TV is a powerful sports coupe finished in Yas Marina Blue, featuring a 3.0-liter S55 Twin-Turbo engine with a claimed output of 1,000 horsepower.</p>
+            </div>
+        </section>
+
+        <!-- 2. BMW M4 (Друга) -->
+        <section class="hero" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="hero-image">
+                <img src="Park2.jpg" alt="BMW M4" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h2 id="car2-title">BMW M4 f82</h2>
+                <p id="car2-desc">The BMW M4 F82 is a grey sports coupe featuring a Stage 2+ tune, combining aggressive styling, a powerful S55 Twin-Turbo engine, and impressive performance. The Stage 2+ setup unlocks more of the car’s potential, making it even more powerful and exciting to drive. Its quad exhaust tips, sporty silhouette, and distinctive engine sound highlight the true character of BMW M.</p>
+            </div>
+        </section>
+
+        <!-- 3. BMW M340i G20 -->
+        <section class="hero" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="hero-image">
+                <img src="Airport.jpg" alt="BMW M340i G20" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h2 id="car3-title">BMW M340i G20</h2>
+                <p id="car3-desc">The BMW M340i G20 is a powerful sports sedan equipped with a 3.0-liter turbocharged inline-six engine. Combining aggressive styling, impressive acceleration, and premium comfort, it delivers an exciting driving experience while maintaining everyday practicality. Its sporty design and distinctive character make it one of the most desirable models in the BMW 3 Series lineup.</p>
+            </div>
+        </section>
+
+        <!-- 4. BMW Series 6 Gran Coupe -->
+        <section class="hero" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="hero-image">
+                <img src="BMW Series 6 Gran Coupe.jpg" alt="BMW Series 6 Gran Coupe" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h2 id="car4-title">BMW Series 6 Gran Coupe</h2>
+                <p id="car4-desc">The BMW 6 Series Gran Coupe is a luxurious four-door sports coupe that combines elegant design, powerful performance, and premium comfort. Its sleek silhouette, aggressive front end, and distinctive rear styling give it a commanding presence on the road. With powerful engine options and a refined interior, it delivers a perfect balance of sportiness and luxury.</p>
+            </div>
+        </section>
+
+        <!-- 5. BMW 3 F30 -->
+        <section class="hero" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="hero-image">
+                <img src="BMW 3 Series F30.2.jpg" alt="BMW 3 F30" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h2 id="car5-title">BMW 3 Series F30</h2>
+                <p id="car5-desc">The BMW 3 Series F30 is a stylish sports sedan that combines elegant design, dynamic performance, and everyday practicality. With its aggressive front grille, sharp headlights, and sporty silhouette, it stands out on the road while delivering the signature driving experience of BMW.</p>
+            </div>
+        </section>
+
+        <!-- 6. BMW M3 E92 -->
+        <section class="hero" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="hero-image">
+                <img src="Les.jpg" alt="BMW M3 E92" onclick="openLightbox(this.src)">
+            </div>
+            <div class="hero-text">
+                <h2 id="car6-title">BMW 3 Series E92</h2>
+                <p id="car6-desc">The BMW 3 Series E92 is a sporty coupe known for its elegant design, aggressive styling, and dynamic driving experience. Its sleek body, distinctive headlights, and powerful engine options make it a timeless classic among BMW enthusiasts.</p>
+            </div>
+        </section>
+        
+        <!-- Спонсор Bulldrop -->
+        <footer class="sponsor-footer">
+            <p><strong>He play on:</strong> <a href="https://bulldrop.mobi/ru?platform=cs2&promocode=%D0%A0%D0%A3%D0%A4%D0%90" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">Bulldrop</a></p>
+        </footer>
+    </div>
+
+    <!-- ТРЕТЬЯ СТОРІНКА (CONTACT) -->
+    <div id="contact-page" class="page-content">
+        <section class="hero">
+            <div class="hero-text">
+                <h1 id="contact-title">Get in Touch</h1>
+                <p id="contact-desc">Have questions, suggestions, or want to collaborate? Reach out to us through our official channels or visit the YouTube channel for the latest updates and videos.</p>
+                <div class="hero-action">
+                    <a href="https://www.youtube.com/@LesterTV_077" target="_blank" rel="noopener noreferrer" class="btn-primary" id="contact-btn">YouTube Channel ↗</a>
+                </div>
+            </div>
+            <div class="hero-image" style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color: #38bdf8; margin-bottom: 15px; font-size: 22px;" id="info-title">Contact Information</h3>
+                <p style="margin-bottom: 8px; color: #cbd5e1; font-size: 14px;"><strong id="info-blogger">Blogger:</strong> Lester TV</p>
+                <p style="margin-bottom: 8px; color: #cbd5e1; font-size: 14px;"><strong id="info-platform">Platform:</strong> Telegram, Twitch, TikTok, YouTube & Instagram</p>
+                <p style="margin-bottom: 15px; color: #cbd5e1; font-size: 14px;"><strong id="info-link">Link:</strong> <span id="info-link-val">Available via channel links</span></p>
+                
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                    <p style="color: #cbd5e1; font-size: 14px;"><strong>Telegram:</strong> <a href="https://t.me/lestercm" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">@lestercm</a></p>
+                    <p style="color: #cbd5e1; font-size: 14px;"><strong>Twitch:</strong> <a href="https://www.twitch.tv/ruffatkoo" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">@ruffatkoo</a></p>
+                    <p style="color: #cbd5e1; font-size: 14px;"><strong>TikTok:</strong> <a href="https://www.tiktok.com/@lesteroff" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">@lesteroff</a></p>
+                    <p style="color: #cbd5e1; font-size: 14px;"><strong>YouTube:</strong> <a href="https://www.youtube.com/@LesterTV_077" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">@LesterTV_077</a></p>
+        </section>
+
+        <!-- Авторство в один рядок -->
+        <div style="display: flex; justify-content: center; align-items: center; width: 100%; gap: 20px; margin: 40px 0 20px 0; color: #94a3b8; font-size: 13px;">
+          <div>Make by: <span style="color: #38bdf8; font-weight: bold;">0ne_K1ng, Maksym12</span></div>
+        </div>
+
+        <footer class="sponsor-footer">
+            <p><strong>He play on:</strong> <a href="https://bulldrop.mobi/ru?platform=cs2&promocode=%D0%A0%D0%A3%D0%A4%D0%90" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: bold;">Bulldrop</a></p>
+        </footer>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="Enlarged View">
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        let currentLang = 'EN';
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxModal').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
+        }
+
+        function toggleFaq(element) {
+            element.classList.toggle('open');
+        }
+
+        const translations = {
+            RU: {
+                navHome: "Главная",
+                navPricing: "О нас",
+                navContact: "Контакты",
+                heroTitle: "Самый быстрый",
+                heroDesc: "Lester TV — популярный игровой блогер, ставший известным благодаря Car Parking Multiplayer. Он ассоциируется со своей легендарной серой BMW M4 F82 Stage 2+, мощным и стильным автомобилем, который стал узнаваемым среди его фанатов.",
+                heroBtn: "Смотреть на YouTube ↗",
+                statSubscribers: "Подписчиков",
+                statPower: "Мощность BMW M4",
+                statViews: "Просмотров",
+                statGame: "Основная Игра",
+                creatorsTitle: "Создатели контента",
+                videoTitle: "Популярные Видео на Канале",
+                labelWatch: "Смотреть видео ↗",
+                labelUsername: "Юзернейм:",
+                labelRole: "Роль:",
+                labelStats: "Статистика:",
+                roleEditor: "Монтажер",
+                roleClipper: "Клиппер",
+                labelCheckout: "Перейти",
+                faqTitle: "Часто Задаваемые Вопросы",
+                faqQ1: "В какую игру играет Lester TV?",
+                faqA1: "Основной акцент каналов Lester TV делаются на Car Parking Multiplayer (CPM), тюнинге и соревнованиях.",
+                faqQ2: "Действительно ли в BMW M4 1000 л.с.?",
+                faqA2: "Сборка на 1000 л.с. является легендой фанатского сообщества и игровых сборок.",
+                faqQ3: "Как вступить в комьюнити?",
+                faqA3: "Вы можете перейти по ссылкам на Telegram, TikTok и Twitch на странице контактов!",
+                bmwDesc: "Главное, с чем ассоциируется Lester TV — это его серая BMW M4 F82. Эта машина запомнилась зрителям и стала важной частью образа блогера.",
+                bmwLearnMore: "Подробнее",
+                bannerTitle: "BMW M4 F82 блогера мощностью 1000 л.с. имеет полностью подтвержденные характеристики.",
+                bannerDesc: "Еще одна интересная тема — BMW M4 F82, которая выдает около 1000 сил и ассоциируется с блогером.",
+                bannerBtn: "Видео на YouTube ↗",
+                labelSponsor: "Спонсор:",
+                bioTitleHeading: "Bio Lester",
+                bioSubtitle: "Биография Lester TV",
+                historyCarsTitle: "История его машин",
+                bioP1: "Lester TV, также известный как Lester (Rufo) — русскоязычный игровой блогер.",
+                bioP2: "Lester привлек аудиторию любителей машин благодаря динамичным видео.",
+                bioP3: "Помимо YouTube, Lester общается со своей аудиторией через социальные сети.",
+                bioP4: "Lester TV — узнаваемое имя в сообществе Car Parking Multiplayer.",
+                bioP5: "Хотя в сети он известен как Lester (Rufo), его настоящее имя не разглашается.",
+                
+                // Переклад опису авто (RU)
+                car1Desc: "BMW M4 F82, принадлежащая Lester TV, — это мощное спортивное купе в цвете Yas Marina Blue, оснащенное 3,0-литровым двигателем S55 Twin-Turbo с заявленной мощностью 1000 лошадиных сил.",
+                car2Desc: "BMW M4 F82 — это серое спортивное купе с прошивкой Stage 2+, сочетающее агрессивный стиль, мощный двигатель S55 Twin-Turbo и впечатляющую динамику. Прошивка Stage 2+ раскрывает еще больше потенциала авто. Четыре патрубка выхлопной системы, спортивный силуэт и фирменный звук мотора подчеркивают истинный характер BMW M.",
+                car3Desc: "BMW M340i G20 — это мощный спортивный седан, оснащенный 3,0-литровым турбированным рядным шестицилиндровым двигателем. Сочетая агрессивный стиль, впечатляющее ускорение и премиальный комфорт, он дарит яркие эмоции от вождения каждый день.",
+                car4Desc: "BMW 6 Series Gran Coupe — это роскошное четырехдверное спортивное купе, объединяющее элегантный дизайн, высокую производительность и премиальный комфорт. Его стремительный силуэт и агрессивная передняя часть привлекают внимание на дороге.",
+                car5Desc: "BMW 3 Series F30 — это стильный спортивный седан, сочетающий в себе элегантный дизайн, динамичность и повседневную практичность. С фирменной решеткой радиатора и спортивным силуэтом он выделяется в потоке.",
+                car6Desc: "BMW 3 Series E92 — это спортивное купе, известное своим элегантным дизайном, агрессивным стилем и динамичным характером. Его обтекаемый кузов и мощные двигатели делают его вечной классикой среди фанатов BMW.",
+
+                solTitle: "Не уверены, какое решение подходит вам лучше всего?",
+                solDesc: "Не волнуйтесь, мы поможем вам подобрать идеальный бренд и продукт.",
+                solBtn: "Узнать больше",
+                contactTitle: "Связаться с нами",
+                contactDesc: "Есть вопросы или предложения? Свяжитесь с нами через официальные каналы.",
+                contactBtn: "YouTube Канал ↗",
+                infoTitle: "Контактная информация",
+                infoBlogger: "Блогер:",
+                infoPlatform: "Платформа:",
+                infoLink: "Ссылка:",
+                infoLinkVal: "Доступно по ссылкам канала"
+            },
+            EN: {
+                navHome: "Home",
+                navPricing: "About",
+                navContact: "Contact",
+                heroTitle: "The Fastest",
+                heroDesc: "Lester TV is a popular gaming blogger who became famous thanks to Car Parking Multiplayer. He is associated with his legendary grey BMW M4 F82 Stage 2+, a powerful and stylish car.",
+                heroBtn: "Watch on YouTube ↗",
+                statSubscribers: "Subscribers",
+                statPower: "BMW M4 Power",
+                statViews: "Total Views",
+                statGame: "Main Game",
+                creatorsTitle: "Content Creators",
+                videoTitle: "Featured YouTube Videos",
+                labelWatch: "Watch Video ↗",
+                labelUsername: "Username:",
+                labelRole: "Role:",
+                labelStats: "Stats:",
+                roleEditor: "Editor",
+                roleClipper: "Clipper",
+                labelCheckout: "Check out",
+                faqTitle: "Frequently Asked Questions",
+                faqQ1: "What game does Lester TV play?",
+                faqA1: "Lester TV primarily focuses on Car Parking Multiplayer (CPM), creating tuning builds and drag races.",
+                faqQ2: "Is the BMW M4 really 1,000 HP?",
+                faqA2: "The 1,000 HP power output is a legendary association among fans and in-game builds.",
+                faqQ3: "How can I join the community?",
+                faqA3: "You can follow official links to Lester's Telegram, TikTok, and Twitch in the Contact page!",
+                bmwDesc: "The main thing associated with Lester TV is his grey BMW M4 F82. This car became memorable to viewers.",
+                bmwLearnMore: "Learn more",
+                bannerTitle: "The blogger's 1,000 HP BMW M4 F82 has fully confirmed specifications.",
+                bannerDesc: "Another interesting topic is the BMW M4 F82 reportedly producing around 1,000 horsepower.",
+                bannerBtn: "YouTube Channel ↗",
+                labelSponsor: "Sponsor:",
+                bioTitleHeading: "Bio Lester",
+                bioSubtitle: "Biography of Lester TV",
+                historyCarsTitle: "History of His Cars",
+                bioP1: "Lester TV, also known as Lester (Rufo), is a Russian-speaking gaming blogger.",
+                bioP2: "Lester has attracted an audience of gaming enthusiasts through dynamic videos.",
+                bioP3: "In addition to YouTube, Lester connects with his audience through social media.",
+                bioP4: "Lester TV is a recognizable name in the Car Parking Multiplayer community.",
+                bioP5: "Although he is known online as Lester (Rufo), his full real name has not been confirmed.",
+                
+                // Переклад опису авто (EN)
+                car1Desc: "The BMW M4 F82 owned by Lester TV is a powerful sports coupe finished in Yas Marina Blue, featuring a 3.0-liter S55 Twin-Turbo engine with a claimed output of 1,000 horsepower.",
+                car2Desc: "The BMW M4 F82 is a grey sports coupe featuring a Stage 2+ tune, combining aggressive styling, a powerful S55 Twin-Turbo engine, and impressive performance. The Stage 2+ setup unlocks more of the car’s potential, making it even more powerful and exciting to drive. Its quad exhaust tips, sporty silhouette, and distinctive engine sound highlight the true character of BMW M.",
+                car3Desc: "The BMW M340i G20 is a powerful sports sedan equipped with a 3.0-liter turbocharged inline-six engine. Combining aggressive styling, impressive acceleration, and premium comfort, it delivers an exciting driving experience while maintaining everyday practicality. Its sporty design and distinctive character make it one of the most desirable models in the BMW 3 Series lineup.",
+                car4Desc: "The BMW 6 Series Gran Coupe is a luxurious four-door sports coupe that combines elegant design, powerful performance, and premium comfort. Its sleek silhouette, aggressive front end, and distinctive rear styling give it a commanding presence on the road. With powerful engine options and a refined interior, it delivers a perfect balance of sportiness and luxury.",
+                car5Desc: "The BMW 3 Series F30 is a stylish sports sedan that combines elegant design, dynamic performance, and everyday practicality. With its aggressive front grille, sharp headlights, and sporty silhouette, it stands out on the road while delivering the signature driving experience of BMW.",
+                car6Desc: "The BMW 3 Series E92 is a sporty coupe known for its elegant design, aggressive styling, and dynamic driving experience. Its sleek body, distinctive headlights, and powerful engine options make it a timeless classic among BMW enthusiasts.",
+
+                solTitle: "Not sure which solution is best for you?",
+                solDesc: "Don't worry, we can help match you to your perfect brand & product solution.",
+                solBtn: "Learn more",
+                contactTitle: "Get in Touch",
+                contactDesc: "Have questions, suggestions, or want to collaborate? Reach out to us through official channels.",
+                contactBtn: "YouTube Channel ↗",
+                infoTitle: "Contact Information",
+                infoBlogger: "Blogger:",
+                infoPlatform: "Platform:",
+                infoLink: "Link:",
+                infoLinkVal: "Available via channel links"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'EN' ? 'RU' : 'EN';
+            document.getElementById('langBtn').innerText = currentLang === 'EN' ? '🌐 RU' : '🌐 EN';
+            
+            const langData = translations[currentLang];
+
+            // Header & Nav
+            document.getElementById('nav-home').innerText = langData.navHome;
+            document.getElementById('nav-pricing').innerText = langData.navPricing;
+            document.getElementById('nav-contact').innerText = langData.navContact;
+
+            // Hero & Stats
+            document.getElementById('hero-title').innerText = langData.heroTitle;
+            document.getElementById('hero-desc').innerText = langData.heroDesc;
+            document.getElementById('hero-btn').innerText = langData.heroBtn;
+            document.getElementById('stat-subscribers').innerText = langData.statSubscribers;
+            document.getElementById('stat-power').innerText = langData.statPower;
+            document.getElementById('stat-views').innerText = langData.statViews;
+            document.getElementById('stat-game').innerText = langData.statGame;
+
+            // Content Creators & Videos
+            document.getElementById('creators-title').innerText = langData.creatorsTitle;
+            document.getElementById('video-title').innerText = langData.videoTitle;
+            document.querySelectorAll('.label-watch').forEach(el => el.innerText = langData.labelWatch);
+            document.querySelectorAll('.label-username').forEach(el => el.innerText = langData.labelUsername);
+            document.querySelectorAll('.label-role').forEach(el => el.innerText = langData.labelRole);
+            document.querySelectorAll('.label-stats').forEach(el => el.innerText = langData.labelStats);
+            document.querySelectorAll('.role-editor').forEach(el => el.innerText = langData.roleEditor);
+            document.querySelectorAll('.role-clipper').forEach(el => el.innerText = langData.roleClipper);
+            document.querySelectorAll('.label-checkout').forEach(el => el.innerText = langData.labelCheckout);
+
+            // FAQ
+            document.getElementById('faq-title').innerText = langData.faqTitle;
+            document.getElementById('faq-q1').innerText = langData.faqQ1;
+            document.getElementById('faq-a1').innerText = langData.faqA1;
+            document.getElementById('faq-q2').innerText = langData.faqQ2;
+            document.getElementById('faq-a2').innerText = langData.faqA2;
+            document.getElementById('faq-q3').innerText = langData.faqQ3;
+            document.getElementById('faq-a3').innerText = langData.faqA3;
+
+            // BMW & Banner
+            document.getElementById('bmw-desc').innerText = langData.bmwDesc;
+            document.getElementById('bmw-learn-more').innerText = langData.bmwLearnMore;
+            document.getElementById('banner-title').innerText = langData.bannerTitle;
+            document.getElementById('banner-desc').innerText = langData.bannerDesc;
+            document.getElementById('banner-btn').innerText = langData.bannerBtn;
+
+            // Sponsor
+            document.querySelectorAll('.label-sponsor').forEach(el => el.innerText = langData.labelSponsor);
+
+            // About Page
+            document.getElementById('bio-title-heading').innerText = langData.bioTitleHeading;
+            document.getElementById('bio-subtitle').innerText = langData.bioSubtitle;
+            document.getElementById('history-cars-title').innerText = langData.historyCarsTitle;
+            document.getElementById('bio-p1').innerText = langData.bioP1;
+            document.getElementById('bio-p2').innerText = langData.bioP2;
+            document.getElementById('bio-p3').innerText = langData.bioP3;
+            document.getElementById('bio-p4').innerText = langData.bioP4;
+            document.getElementById('bio-p5').innerText = langData.bioP5;
+
+            // Описи машин
+            if (document.getElementById('car1-desc')) document.getElementById('car1-desc').innerText = langData.car1Desc;
+            if (document.getElementById('car2-desc')) document.getElementById('car2-desc').innerText = langData.car2Desc;
+            if (document.getElementById('car3-desc')) document.getElementById('car3-desc').innerText = langData.car3Desc;
+            if (document.getElementById('car4-desc')) document.getElementById('car4-desc').innerText = langData.car4Desc;
+            if (document.getElementById('car5-desc')) document.getElementById('car5-desc').innerText = langData.car5Desc;
+            if (document.getElementById('car6-desc')) document.getElementById('car6-desc').innerText = langData.car6Desc;
+
+            document.getElementById('sol-title').innerText = langData.solTitle;
+            document.getElementById('sol-desc').innerText = langData.solDesc;
+            document.getElementById('sol-btn').innerText = langData.solBtn;
+
+            // Contact Page
+            document.getElementById('contact-title').innerText = langData.contactTitle;
+            document.getElementById('contact-desc').innerText = langData.contactDesc;
+            document.getElementById('contact-btn').innerText = langData.contactBtn;
+            document.getElementById('info-title').innerText = langData.infoTitle;
+            document.getElementById('info-blogger').innerText = langData.infoBlogger;
+            document.getElementById('info-platform').innerText = langData.infoPlatform;
+            document.getElementById('info-link').innerText = langData.infoLink;
+            document.getElementById('info-link-val').innerText = langData.infoLinkVal;
+        }
+
+        function switchPage(event, pageName) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            var pages = document.querySelectorAll('.page-content');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active-page');
+            }
+
+            var links = document.querySelectorAll('.nav-link');
+            for (var j = 0; j < links.length; j++) {
+                links[j].classList.remove('active');
+            }
+
+            var targetPage = document.getElementById(pageName + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active-page');
+            }
+
+            var targetNav = document.getElementById('nav-' + pageName);
+            if (targetNav) {
+                targetNav.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
